@@ -10,7 +10,7 @@ const giftExchange = require('./routes/gift-exchange')
 app.use(morgan('tiny'))
 app.use(bodyParser.json())
 
-app.use('/gift-exchange', giftExchange)
+app.use('/gift-exchange', giftExchange) // mount router to endpoint
 
 app.get('/', (req, res) => {
     res.status(200).send({"ping": "pong"});
