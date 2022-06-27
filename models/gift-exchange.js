@@ -1,3 +1,5 @@
+const BadRequestError = require("../utils/errors");
+
 class GiftExchange {
     constructor() {
 
@@ -7,7 +9,7 @@ class GiftExchange {
         // if number of names is odd
         // throw an error
         if (names.length % 2) {
-            throw new Error("the number of given names can't be odd");
+            throw new BadRequestError("the number of given names can't be odd")
         } 
         // otherwise, randomly pair names together
         else {
