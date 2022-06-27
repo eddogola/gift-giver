@@ -1,19 +1,16 @@
 const express = require('express');
-const GiftExchange = require('../models/gift-exchange');
 const router = express.Router();
 
 router.post('/pairs', (req, res) => {
   const names = req.body.names;
-  const pairs = GiftExchange.pairs(names)
 
-  res.status(200).send(pairs);
+  res.status(200).send("Gotcha")
 })
 
 router.post('/traditional', (req, res) => {
-    const names = req.body.names;
-    const traditional = GiftExchange.traditional(names);
+    const names = req.body.names
 
-    res.status(200).send(traditional)
+    res.status(200).send("OK")
 })
 
 
