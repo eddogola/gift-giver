@@ -12,14 +12,27 @@ class GiftExchange {
         // otherwise, randomly pair names together
         else {
             let pairs = [];
+            // make two copies and shuffle them
+            let arr1 = names.slice(), arr2 = names.slice(); // copy names array twice
+            // shuffle arrays
+            arr1.sort(function() { return 0.5 - Math.random();}); 
+            arr2.sort(function() { return 0.5 - Math.random();});
+
+            // pair items from the shuffled arrays
+            while (arr1.length) {
+                let name1 = arr1.pop(), // get the last value of arr1
+                name2 = arr2[0] === name1 ? arr2.pop() : arr2.shift();
+                const indexToRemove = arr1.indexOf(name2);
+                arr1.splice(indexToRemove, 1);
+                const secondIndexToRemove = arr2.indexOf(name1);
+                arr2.splice(secondIndexToRemove, 1);
+                //        ^^ if the first value is the same as name1, 
+                //           get the last value, otherwise get the first
+                pairs.push([name1, name2])
+            }
 
             return pairs;
         }
-
-        
-        // pick a random item from the array
-        // remove that from the original array
-        // return the paired names
     }
 
     static traditional(names) {
