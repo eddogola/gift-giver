@@ -43,8 +43,8 @@ class GiftExchange {
         let new_pairs = [].concat(pairs);
 
         for(let i=0; i < pairs.length; i++) {
-            current_pair = pairs[i];
-            next_pair = (i + 1 === pairs.length) ? pairs[0] : pairs[i + 1];
+            const current_pair = pairs[i];
+            const next_pair = (i + 1 === pairs.length) ? pairs[0] : pairs[i + 1];
             new_pairs.push([current_pair[1], next_pair[0]]);
         }
 
